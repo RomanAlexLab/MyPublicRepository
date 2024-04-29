@@ -1,1 +1,1 @@
-# MyPublicRepository
+# Публичный репозиторий
