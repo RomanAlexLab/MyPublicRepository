@@ -4,7 +4,7 @@ import logging
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 from components.handlers import router as router_command
-from components.gpt import router as gpt_router
+from components.textmessage import router as gpt_router
 from components.audiomessage import router as audio_router
 
 

@@ -8,8 +8,8 @@ from aiogram.types import Message
 from aiogram import F, Router
 from aiogram.enums import ChatAction
 from aiogram.fsm.context import FSMContext
-from components.middleware import RateLimitMiddleware, InitMiddlewareFSM
-from components.gpt import get_answer_gpt
+from components.middleware import VoiceRateLimitMiddleware, InitMiddlewareFSM
+from components.textmessage import get_answer_gpt
 import aiofiles.os
 
 
@@ -29,7 +29,7 @@ router = Router()
 
 # Настройка мидлварей
 router.message.middleware(InitMiddlewareFSM())
-router.message.middleware(RateLimitMiddleware(limit=10, window=60))
+router.message.middleware(VoiceRateLimitMiddleware(limit=2, window=60))
 
 
 # Инициализация клиента OpenAI

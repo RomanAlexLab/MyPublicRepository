@@ -32,7 +32,7 @@ router = Router()
 
 # Настройка мидлварей
 router.message.middleware(InitMiddlewareFSM())
-router.message.middleware(RateLimitMiddleware(limit=10, window=60))
+router.message.middleware(RateLimitMiddleware(limit=3, window=60))
 
 
 # Загрузка векторного хранилища
@@ -105,6 +105,8 @@ async def get_answer_gpt(message: Message, state: FSMContext, voice_text=None):
 
     # Получаем новые данные FSMContext и печатаем в CLI
     help_data = await state.get_data()
+
+    # Печатаем в CLI
     print("Данные в обработчике:", help_data)
 
     # Отправляем ответ в чат
