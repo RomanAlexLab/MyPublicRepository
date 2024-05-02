@@ -1,0 +1,16 @@
+[Unit]
+Description=Demo telegram bot
+After=network.target
+
+[Service]
+Type=simple
+User=userapp
+WorkingDirectory=/home/DemoTelgramBot/
+ExecStart=/home/DemoTelgramBot/start.sh
+Restart=on-failure
+PrivateTmp=true
+ProtectSystem=strict
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
